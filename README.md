@@ -1,4 +1,4 @@
-# My Android App
+# Weather App
 
 This is an Android application built with Android Studio.
 
@@ -8,7 +8,7 @@ This is an Android application built with Android Studio.
 
 Running an Android app means **building it and launching it on a device or emulator** to see how it works.
 
-Here’s how you can do it using **Android Studio**, the official IDE for Android development.
+Here’s how you can do it using **Android Studio**, the Official IDE for Android Development.
 
 ---
 
@@ -31,7 +31,15 @@ Follow the setup wizard to install:
     - **Open** → to open an existing project
 ---
 
-## 3. Connect a Device or Start an Emulator
+## 3. Add your WEATHER_APP_ID inside the local.properties
+
+- For the project to run it needs also the WEATHER_APP_ID
+- which you can get it from https://home.openweathermap.org/api_keys
+- after you have created an account on the website, the key 
+- enables the app to get the weather data it requires.
+---
+
+## 4. Connect a Device or Start an Emulator
 
 ### ✅ Real Device
 
@@ -48,7 +56,7 @@ Follow the setup wizard to install:
 
 ---
 
-## 4. Select Your Device
+## 5. Select Your Device
 
 At the top toolbar in Android Studio, look for the **device selector** dropdown.
 
@@ -56,7 +64,7 @@ At the top toolbar in Android Studio, look for the **device selector** dropdown.
 - your real device
 - the emulator
 
-## 5. Run the App
+## 6. Run the App
 
 Click the green **Run** ▶️ button in the toolbar:
 
