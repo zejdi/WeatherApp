@@ -5,15 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/color_primary"
     tools:context=".ui.MainActivity">
 
+    <RelativeLayout
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_primary"
+        android:visibility="gone"
+        android:translationZ="1dp">
+        <ImageView
+            android:id="@+id/overlay_icon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/cloudy_day"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/overlay_icon"
+            android:text="Loading..."
+            />
+    </RelativeLayout>
+
     <TextView
-        android:id="@+id/location"
+        android:id="@+id/place"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bubbler_one_regular"
         android:text="Karachi"
         android:textSize="45sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,18 +50,20 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans_regular"
         android:text="Today"
+        android:visibility="invisible"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/location"
+        app:layout_constraintTop_toBottomOf="@id/place"
         app:layout_constraintVertical_bias="0" />
 
     <ImageView
         android:id="@+id/icon"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/cloud"
+        android:src="@drawable/scatterd_cloud"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.12"
@@ -53,6 +79,7 @@
         android:fontFamily="@font/open_sans_regular"
         android:text="Today"
         android:textSize="15sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,19 +87,19 @@
         app:layout_constraintVertical_bias="0.15">
 
         <TextView
+            android:id="@+id/today_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
             android:paddingHorizontal="13dp"
-            android:text="27"
             android:textSize="80sp" />
 
         <TextView
+            android:id="@+id/unit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="5dp"
-            android:text="°C"
             android:textSize="25sp" />
     </FrameLayout>
 
@@ -83,6 +110,7 @@
         android:fontFamily="@font/open_sans_regular"
         android:text="Tomorrow"
         android:textSize="15sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,18 +129,16 @@
         app:layout_constraintVertical_bias="0">
 
         <ImageView
-            android:id="@+id/tomorrow_weather_icon"
+            android:id="@+id/tomorrow_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/cloud" />
+            android:visibility="gone"
+            android:src="@drawable/scatterd_cloud" />
 
         <FrameLayout
             android:id="@+id/temp_container"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:fontFamily="@font/open_sans_regular"
-            android:text="Today"
-            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -120,22 +146,28 @@
             app:layout_constraintVertical_bias="0.15">
 
             <TextView
+                android:id="@+id/tomorrow_temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:fontFamily="@font/open_sans_regular"
                 android:gravity="center_vertical"
-                android:paddingHorizontal="6dp"
-                android:text="27"
+                android:paddingHorizontal="8dp"
                 android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tomorrow_temp_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="5dp"
+                android:textSize="9sp" />
         </FrameLayout>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/week_forecast"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
