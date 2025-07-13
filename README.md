@@ -28,9 +28,7 @@ Follow the setup wizard to install:
 
 - Open Android Studio.
 - Click:
-    - **New Project** → to start a new app
     - **Open** → to open an existing project
-
 ---
 
 ## 3. Connect a Device or Start an Emulator
@@ -82,7 +80,3 @@ Click the green **Run** ▶️ button in the toolbar:
 > To run an Android app, open it in Android Studio, connect a physical device or start the emulator, choose your device from the dropdown, and click the Run button. Android Studio builds and installs the app, then launches it on your chosen device so you can test and debug it.
 
 ---
-
-## 📝 License
-
-[MIT](LICENSE)
