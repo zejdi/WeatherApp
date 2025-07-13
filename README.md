@@ -1,6 +1,6 @@
 # Weather App
 
-This is an Android application built with Android Studio.
+This is an Android Application for the Weather
 
 ---
 
@@ -34,9 +34,9 @@ Follow the setup wizard to install:
 ## 3. Add your WEATHER_APP_ID inside the local.properties
 
 - For the project to run it needs also the WEATHER_APP_ID
-- which you can get it from https://home.openweathermap.org/api_keys
-- after you have created an account on the website, the key 
-- enables the app to get the weather data it requires.
+  which you can get it from https://home.openweathermap.org/api_keys
+  after you have created an account on the website, the key 
+  enables the app to get the weather data it requires.
 ---
 
 ## 4. Connect a Device or Start an Emulator
