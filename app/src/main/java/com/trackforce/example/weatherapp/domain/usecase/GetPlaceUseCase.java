@@ -9,11 +9,11 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class GetCityUseCase {
+public class GetPlaceUseCase {
     private final GeocodeRepository geocodeRepository;
 
     @Inject
-    public GetCityUseCase(GeocodeRepository geocodeRepository) {
+    public GetPlaceUseCase(GeocodeRepository geocodeRepository) {
         this.geocodeRepository = geocodeRepository;
     }
 

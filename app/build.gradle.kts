@@ -52,6 +52,8 @@ dependencies {
     implementation(libs.okhttp.logging)
     annotationProcessor(libs.hilt.compiler)
     testImplementation(libs.junit)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.robolectric)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }

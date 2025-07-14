@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.trackforce.example.weatherapp.domain.model.WeatherForecast;
-import com.trackforce.example.weatherapp.domain.usecase.GetCityUseCase;
+import com.trackforce.example.weatherapp.domain.usecase.GetPlaceUseCase;
 import com.trackforce.example.weatherapp.domain.usecase.GetUnitUseCase;
 import com.trackforce.example.weatherapp.domain.usecase.GetWeatherUseCase;
 
@@ -22,7 +22,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 public class WeatherForecastViewModel extends ViewModel {
     private GetWeatherUseCase getWeatherUseCase;
     private GetUnitUseCase getUnitUseCase;
-    private GetCityUseCase getCityUseCase;
+    private GetPlaceUseCase getPlaceUseCase;
 
     private MutableLiveData<String> placeLiveData = new MutableLiveData<>();
     private MutableLiveData<WeatherForecast> weatherForecastLiveData = new MutableLiveData<>();
@@ -31,15 +31,15 @@ public class WeatherForecastViewModel extends ViewModel {
     private final Executor executor = Executors.newCachedThreadPool();
 
     @Inject
-    public WeatherForecastViewModel(GetWeatherUseCase getWeatherUseCase, GetUnitUseCase getUnitUseCase, GetCityUseCase getCityUseCase) {
+    public WeatherForecastViewModel(GetWeatherUseCase getWeatherUseCase, GetUnitUseCase getUnitUseCase, GetPlaceUseCase getPlaceUseCase) {
         this.getWeatherUseCase = getWeatherUseCase;
         this.getUnitUseCase = getUnitUseCase;
-        this.getCityUseCase = getCityUseCase;
+        this.getPlaceUseCase = getPlaceUseCase;
     }
 
     public void getWeatherForecast(Location location) {
         executor.execute(() -> {
-            placeLiveData.postValue(getCityUseCase.execute(location));
+            placeLiveData.postValue(getPlaceUseCase.execute(location));
             WeatherForecast response = getWeatherUseCase.execute(location);
             if (response != null) weatherForecastLiveData.postValue(response);
             unit.postValue(getUnitUseCase.execute());
